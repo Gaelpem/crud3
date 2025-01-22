@@ -57,7 +57,42 @@ public function setEmail(string $email) : void
 
 public function setMdp(string $mdp) : void
 {
-      
+        $caractereSpeciaux = "%?!-&/+"; 
+        $verifCaractere = false ; 
+
+        foreach(str_split($caractereSpeciaux) as $caractere){
+            if(strpos($mdp, $caractere) !== false){
+                $verifCaractere = true ; 
+                break; 
+            }
+        }
+
+        if(!$verifCaractere){
+            throw new Exception(self::ERROR_MDP); 
+        }else{
+            $this->mdp = $mdp; 
+        }
+
+        if(strlen($mdp) >= 10 && preg_match('/[A-Za-z]/', $mdp) && preg_match('/[0-9]/', $mdp) && $verifCaractere){
+            $this->mdp = password_hash($mdp, PASSWORD_DEFAULT); 
+        }else{
+            throw new Exception(self::ERROR_MDP); 
+        }
+
+
+        
+}
+
+
+public function getNom($nom){
+    return $this->nom; 
+}
+
+public function getEmail($email){
+    return $this->email; 
+}
+public function getMdp($mdp){
+    return $this->mdp; 
 }
 
 }

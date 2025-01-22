@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="asset/style.css">
-    <title>Entrainement</title>
-</head>
+<?php
+session_start(); 
+require_once "config/config.php"; 
+
+?>
+
+<?php include "inc/head.inc.php" ?>
 <body>
     <form action="" method="post" class="form">
     <label for="">Nom</label>
