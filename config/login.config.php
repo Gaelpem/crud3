@@ -4,7 +4,7 @@ require_once "config/config.php";
 
 
 
-class User{
+class UserAdmin{
     const ERROR_NOM = "Nom incorrect"; 
     const ERROR_EMAIL = "Email incorrect"; 
     const ERROR_MDP = "Mot de pass incorrect"; 
